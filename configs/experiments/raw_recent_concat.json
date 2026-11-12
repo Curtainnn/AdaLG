@@ -1,0 +1,27 @@
+{
+  "protocol_version": 1,
+  "description": "Prospective objective-matched architecture comparison; not a reconstruction of the historical manuscript main table.",
+  "common": {
+    "POINT_SPLIT_MODE": "record", "POINT_TRAIN_SIZE": "0.8", "POINT_VAL_SIZE": "0.1", "POINT_TEST_SIZE": "0.1",
+    "OPTIMIZER": "adamw", "LEARNING_RATE": "0.001", "TRAIN_EPOCHS": "100", "PATIENCE": "5",
+    "D_MODEL": "64", "D_FF": "256", "E_LAYERS": "1", "N_HEADS": "8", "DROPOUT": "0.1",
+    "POINT_HIDDEN_DIM": "128", "POINT_LAYERS": "3", "POINT_TIME_DIM": "32", "POINT_TOKEN_SUBBINS": "4",
+    "POINT_KNN": "12", "POINT_LOCAL_FUSION_K": "12", "POINT_LOCAL_BRANCH_SOURCE": "raw",
+    "POINT_LOCAL_ENCODER": "summary", "POINT_LOCAL_FUSION_MODE": "causal_time_weighted",
+    "POINT_FORCE_FUSION": "auto", "POINT_DISABLE_LOCAL_BRANCH": "0", "POINT_GATE_MODE": "ordinary",
+    "POINT_GATE_MAX": "0.5", "POINT_LOCAL_GATE_BIAS": "-1.3862943611198906",
+    "POINT_DISABLE_CAUSAL_GATE_CONTEXT": "1", "POINT_DISABLE_GATE_AVAILABILITY_FEATURES": "0",
+    "POINT_GATE_PREDICTION_FEATURES": "0", "POINT_SEPARATE_UTILITY_HEAD": "0",
+    "GLOBAL_AUX_LOSS_WEIGHT": "0", "LOCAL_AUX_LOSS_WEIGHT": "0", "UTILITY_LOSS_WEIGHT": "0", "ORACLE_GATE_LOSS_WEIGHT": "0",
+    "CAUSAL_LOCAL_ALPHA": "0", "CAUSAL_LOCAL_BETA": "1", "CAUSAL_LOCAL_EXPAND_POOL": "0",
+    "POINT_RECENT_STRICT_PAST": "1", "RAW_RECENT_QUERY_EXPORT": "1",
+    "POINT_TRAIN_STAGE": "full", "POINT_GATE_HOLDOUT_RATIO": "0",
+    "LOCAL_OBSERVATION_DROP_ROBUSTNESS": "0", "INPUT_OBSERVATION_DROP_ROBUSTNESS": "0"
+  },
+  "datasets": {
+    "ushcn": {"BATCH_SIZE": "16", "LOSS_TYPE": "mse", "CHECKPOINT_METRIC": "mse", "CAUSAL_ODE_GATE_INIT": "-1.0"},
+    "p19": {"BATCH_SIZE": "128", "LOSS_TYPE": "mae", "CHECKPOINT_METRIC": "mae", "CAUSAL_ODE_GATE_INIT": "-4.0", "P19_SPLIT": "1"},
+    "physionet": {"BATCH_SIZE": "32", "LOSS_TYPE": "mae", "CHECKPOINT_METRIC": "mae", "CAUSAL_ODE_GATE_INIT": "-4.0"},
+    "human_activity": {"BATCH_SIZE": "16", "LOSS_TYPE": "mse", "CHECKPOINT_METRIC": "mse", "CAUSAL_ODE_GATE_INIT": "-4.0"}
+  }
+}
